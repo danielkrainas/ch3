@@ -1,7 +1,7 @@
 {
-  "name": "PFAAS",
+  "name": "ch3",
   "version": "0.0.1",
-  "description": "PFAAS PoC for PHILIPS",
+  "description": "ch3",
   "main": "frontend/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
