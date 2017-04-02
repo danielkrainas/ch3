@@ -1,5 +1,5 @@
-frontend/vendor
-frontend/js
-frontend/css
+app/vendor
+app/js
+app/css
 node_modules
 .idea
