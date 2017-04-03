@@ -1,4 +1,5 @@
 app/js
 app/css
+app/vendor
 node_modules
 .idea

@@ -25,7 +25,8 @@
         copy: {
             dist: {
                 files: [
-                    { expand: true, cwd: 'assets', src: ['**'], dest: '.dist/'  },
+                    //{ expand: true, cwd: 'assets', src: ['**'], dest: '.dist/'  },
+                    { expand: true, cwd: 'node_modules/bootstrap/dist', src: ['css/*.min.css', 'fonts/**'], dest: 'app/vendor/bootstrap' }
                 ]
             }
         },
@@ -83,7 +84,7 @@
 
                 files: [{ 
                     expand: true,
-                    src: ['src/styles/style.styl'], 
+                    src: ['src/styles/style.styl'],
                     ext: '.css' 
                 }]
             }
