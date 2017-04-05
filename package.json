@@ -9,8 +9,9 @@
   },
   "window": {
     "frame": true,
-    "toolbar": true,
-    "position": "center"
+    "toolbar": false,
+    "position": "center",
+    "fullscreen": true
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -19,7 +20,9 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-google-fonts": "^0.4.0",
     "grunt-rollup": "^1.0.1",
+    "grunt-webfont": "^1.6.0",
     "lodash": "^4.17.4",
     "redux": "^3.6.0",
     "require-relative": "^0.8.7",

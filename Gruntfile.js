@@ -12,12 +12,19 @@
         pkg: grunt.file.readJSON('package.json'),
 
         watch: {
-            client: {
-                files: ['src/*.js', 'src/**/*.js', 'src/**/*.tag', 'assets/**', 'styles/*.styl'],
-                tasks: ['build'],
+            app: {
+                files: ['src/app/**/*.js', 'src/app/**/*.tag'],
+                tasks: ['rollup'],
                 options: {
-                    livereload: 5729,
-                    livereloadOnError: false
+                    livereload: false,
+                }
+            },
+
+            styles: {
+                files: ['styles/*.styl'],
+                tasks: ['styles'],
+                options: {
+                    livereload: false,
                 }
             }
         },
@@ -25,9 +32,23 @@
         copy: {
             dist: {
                 files: [
-                    //{ expand: true, cwd: 'assets', src: ['**'], dest: '.dist/'  },
+                    { expand: true, cwd: 'src/styles/fonts/', src: ['**'], dest: 'app/css/fonts' },
                     { expand: true, cwd: 'node_modules/bootstrap/dist', src: ['css/*.min.css', 'fonts/**'], dest: 'app/vendor/bootstrap' }
                 ]
+            }
+        },
+
+        googlefonts: {
+            fetch: {
+                options: {
+                    fontPath: 'src/styles/fonts',
+                    cssFile: 'src/styles/fonts.styl',
+                    httpPath: 'fonts/',
+                    fonts: [{
+                        family: 'Press Start 2P',
+                        styles: [400]
+                    }]
+                }
             }
         },
 
@@ -76,6 +97,23 @@
             }
         },*/
 
+        webfont: {
+            consoles: {
+                src: 'src/svg/consoles/*.svg',
+                dest: 'src/styles/fonts/consoles',
+                options: {
+                    htmlDemo: false,
+                    templateOptions: {
+                        baseClass: 'ci-icon',
+                        classPrefix: 'ci-'
+                    },
+                    fontFamilyName: 'Game Consoles',
+                    stylesheet: 'styl',
+                    relativeFontPath: 'fonts/consoles'
+                }
+            }
+        },
+
         stylus: {
             styles: {
                 options: {
@@ -96,9 +134,12 @@
     grunt.loadNpmTasks('grunt-contrib-watch')
     grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-stylus')
+    grunt.loadNpmTasks('grunt-google-fonts')
+    grunt.loadNpmTasks('grunt-webfont')
 
     grunt.registerTask('styles', ['stylus'])
 
+    grunt.registerTask('update-assets', ['googlefonts:fetch', 'webfont:consoles'])
     grunt.registerTask('build', ['copy:dist', 'styles', 'rollup'])
     grunt.registerTask('test', ['karma:unit'])
 }
