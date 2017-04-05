@@ -21,7 +21,7 @@
             },
 
             styles: {
-                files: ['styles/*.styl'],
+                files: ['src/styles/*.styl'],
                 tasks: ['styles'],
                 options: {
                     livereload: false,
