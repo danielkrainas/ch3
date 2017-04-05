@@ -1,13 +1,16 @@
 html, body
-  height 100vh
-  margin 0
-  padding 0
-  background #343434
-  color #EEE
-  overflow hidden
+	height 100vh
+	margin 0
+	padding 0
+	background #343434
+	color #E9EAD8
+	overflow hidden
   
 a
+	color #E9EAD8
 	text-decoration none !important
+	&:visited, &:active
+		color #E9EAD8
 
 .text-8bit 
 	font-family 'Press Start 2P'
@@ -30,11 +33,29 @@ a
 	margin 0
 	padding 0
 	
+	.console-title
+		font-size 4vh
+		opacity 0
+		-webkit-transition opacity 0.2s linear
+		color #E9EAD8
+	
 	.console-list-item
 		list-style-type none
 		padding 0
-		margin 0
-		& > a
+		margin 0 0
+		position relative
+		top 0
+		min-width 100%
+		opacity 0.3
+		-webkit-transition all 0.5s ease-in-out
+		
+		&.active
+			opacity 1.0
+
+			.console-title 
+				opacity 1.0 !important
+		
+		& a > b.ci-icon
 			font-size 40vh
 			color #E9EAD8 !important
 
