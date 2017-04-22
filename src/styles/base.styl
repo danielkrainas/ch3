@@ -32,22 +32,28 @@ a
 	width 30vw
 	margin 0
 	padding 0
+	height 45vh
+	position relative
 	
 	.console-title
 		font-size 4vh
+		margin-top 0
+		margin-bottom 1vh
 		opacity 0
-		-webkit-transition opacity 0.2s linear
+		transition opacity 0.2s linear
 		color #E9EAD8
 	
 	.console-list-item
 		list-style-type none
 		padding 0
-		margin 0 0
-		position relative
+		margin 0
 		top 0
-		min-width 100%
 		opacity 0.3
-		-webkit-transition all 0.5s ease-in-out
+		height 45vh
+		max-height 45vh
+		width 100%
+		transition all 0.5s ease-in-out
+		
 		
 		&.active
 			opacity 1.0
@@ -55,7 +61,12 @@ a
 			.console-title 
 				opacity 1.0 !important
 		
-		& a > b.ci-icon
-			font-size 40vh
-			color #E9EAD8 !important
-
+		a 
+			display block
+			height 100%
+			min-width 100%
+			background-size 100% 100%
+			
+			& > b.ci-icon
+				//font-size 40vh
+				color #E9EAD8 !important

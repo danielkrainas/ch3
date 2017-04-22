@@ -1,22 +1,22 @@
 <console-list>
 	<div class="screen-center">
-		<ul class="console-list">
-			<li each={ _consoles } class={ 'console-list-item': true, active: active  }>
-				<a href="#"><b class="ci-icon { icon }" title={ name }></b> <p class="text-8bit console-title">{ name }</p></a>
-			</li>
-		</ul>
+		<div class="console-list">
+			<section each={ _consoles } class={ 'console-list-item': true, active: active  }>
+				<a class="{ icon }" href="#"><b title={ name }></b> <p class="text-8bit console-title">{ name }</p></a>
+			</section>
+		</div>
 	</div>
 
 	<script>
 		this._consoles = [
 			{
 				name: 'NES',
-				icon: 'ci-nes',
+				icon: 'icon-nes2',//'ci-nes',
 				active: true
 			},
 			{
-				name: 'NES',
-				icon: 'ci-nes'
+				name: 'SNES',
+				icon: 'icon-snes'//'ci-nes'
 			},
 		];
 
@@ -47,22 +47,24 @@
 					break;
 			};
 
-			const el = this.root.getElementsByTagName('UL')[0].getElementsByTagName('LI')[0];
+			const el = this.root.querySelector('.console-list').getElementsByTagName('section')[0];
 			if (selected <= 0) {
 				el.style.marginTop = '0';
+				//el.style.transform = 'translate(0%,0%)';
 			} else {
-				el.style.marginTop = '-' + (100*selected) + '%';
+				//el.style.transform = 'translate(0%,'+ (100*selected) +'%)';
+				el.style.marginTop = '-' + (el.clientHeight*selected) + 'px';
 			}
 		};
 
 		this.on('mount', () => {
-			const list = this.root.getElementsByTagName('UL')[0];
+			const list = this.root.querySelector('.console-list');
 			list.addEventListener('keydown', handleKeyboard);
 			list.focus();
 		});
 
 		this.on('unmount', () => {
-			const list = this.root.getElementsByTagName('UL')[0];
+			const list = this.root.querySelector('.console-list');
 			list.removeEventListener('keydown', handleKeyboard);
 		});
 	</script>

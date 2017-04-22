@@ -126,7 +126,22 @@
                     ext: '.css' 
                 }]
             }
-        }
+        },
+
+        grunticon: {
+            test: {
+                options: {
+                    datasvgcss: 'console-icons.svg.styl',
+                },
+
+                files: [{
+                    expand: true,
+                    cwd: 'src/svg/consoles',
+                    src: ['*.svg'],
+                    dest: 'src/styles/console-icons'
+                }]
+            }
+        },
     })
 
     //grunt.loadNpmTasks('grunt-karma')
@@ -136,6 +151,7 @@
     grunt.loadNpmTasks('grunt-contrib-stylus')
     grunt.loadNpmTasks('grunt-google-fonts')
     grunt.loadNpmTasks('grunt-webfont')
+    grunt.loadNpmTasks('grunt-grunticon')
 
     grunt.registerTask('styles', ['stylus'])
 
