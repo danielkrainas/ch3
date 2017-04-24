@@ -2,12 +2,12 @@ export const initialState = {
 	consoles: [
 		{
 			name: 'NES',
-			icon: 'ci-nes',
+			icon: 'icon-nes2',
 			active: true
 		},
 		{
-			name: 'NES',
-			icon: 'ci-nes'
+			name: 'SNES',
+			icon: 'icon-snes'
 		},
 	],
 };
