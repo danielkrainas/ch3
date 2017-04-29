@@ -158,4 +158,5 @@
     grunt.registerTask('update-assets', ['googlefonts:fetch', 'webfont:consoles'])
     grunt.registerTask('build', ['copy:dist', 'styles', 'rollup'])
     grunt.registerTask('test', ['karma:unit'])
+    grunt.registerTask('default', ['build']);
 }
